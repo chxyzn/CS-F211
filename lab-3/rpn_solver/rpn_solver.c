@@ -2,7 +2,7 @@
 #include <string.h>
 #include <stdbool.h>
 #include <stdlib.h>
-#include "stack/stack.h"
+#include "../stack/stack.h"
 
 bool is_operator(char c);
 float compute(float a, float b, char operator);
@@ -15,7 +15,7 @@ int main()
 
     Stack *stack = newStack();
 
-    for (char *s = strtok(str, " "); s != NULL; s = strtok(NULL, " "))
+    for (char *s = strtok(str, " ,"); s != NULL; s = strtok(NULL, " ,"))
     {
         if (!is_operator(s[0]) || (s[0] == '-' && strlen(s) > 1))
             push(stack, atof(s));
