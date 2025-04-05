@@ -27,6 +27,7 @@ int main()
 
     return 0;
 }
+
 void sort_all()
 {
     FILE **files = malloc(10 * sizeof(FILE *));
@@ -35,7 +36,7 @@ void sort_all()
 
     for (int i = 0; i < 10; i++)
     {
-        valid[i] = 0; // Explicitly initialize
+        valid[i] = 0;
         char name[19];
         sprintf(name, "out%d.txt", i);
         files[i] = fopen(name, "r");
@@ -45,11 +46,6 @@ void sort_all()
     }
 
     FILE *out = fopen("out.txt", "w");
-    if (!out)
-    {
-        printf("Error opening out.txt\n");
-        return;
-    }
 
     while (1)
     {
@@ -69,7 +65,7 @@ void sort_all()
         if (files[i])
             fclose(files[i]);
     }
-    free(files); // Free allocated memory
+    free(files);
     free(a);
 }
 
